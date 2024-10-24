@@ -1,28 +1,24 @@
-//c++ code
-// 
-int estadoSensor = 45;
+int estadoSensor = 0;
 
-void setup(){
- pinMode(A0, INPUT);
- Serial.begin(9600);
- pinMode(7, OUTPUT);
+void setup() {
+  pinMode(A0, INPUT);
+  Serial.begin(9600);
+  pinMode(7, OUTPUT);
 }
 
-void loop(){
-estadoSensor = analogRead(A0);
-int Porcento = map(estadoSensor, 0, 53, 0, 6);
-Serial.print(Porcento);
-Serial.println("%");
+void loop() {
+  estadoSensor = analogRead(A0);
+  int porcento = map(estadoSensor, 0, 1023, 0, 100); 
+  Serial.print(porcento);
+  Serial.println("%");
 
-  
-  
-  if(Porcento <= 45){
-  digitalWrite(7, HIGH);
-  Serial.println("IRRIGANDO O SOLO...");
+  if (porcento < 45) { // Corrigido: remover a barra extra
+    digitalWrite(7, HIGH);
+    Serial.println("IRRIGANDO O SOLO...");
+  } else {
+    digitalWrite(7, LOW);
+    Serial.println("SOLO TOTALMENTE IRRIGADO!!");
   }
-  else{
-  digitalWrite(7, LOW);
-    Serial.println("SOLO TOTALMENTE IRIIGADO!!");
-  }
-  delay(1);
+
+  delay(1000); 
 }
