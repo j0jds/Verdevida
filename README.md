@@ -13,7 +13,7 @@ The Automatic Greenhouse is equipped with sensors and actuators that communicate
 ## 🛠️ Technologies Used
 
 - **IoT Platform**: Arduino, ESP32
-- **Programming Language**: C
+- **Programming Language**: C++
 - **Sensors**: DHT22, soil moisture sensor, LDR
 - **Actuators**: Relays to control lights, water pumps, and fans.
 
